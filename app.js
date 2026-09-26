@@ -11,7 +11,7 @@ document.getElementById("listingForm").addEventListener("submit", function(e) {
   displayListings();
 });
 
-document.getElementById("filterInput").addEventListener("input", function() {
+document.getElementById("filterInput").addEventListener("change", function() {
   displayListings(this.value);
 });
 
@@ -23,7 +23,12 @@ function displayListings(filter = "") {
     .filter(item => item.category.toLowerCase().includes(filter.toLowerCase()))
     .forEach(item => {
       const div = document.createElement("div");
-      div.innerHTML = `<strong>${item.title}</strong> - $${item.price} (${item.category})`;
+      div.className = "listing";
+      div.innerHTML = `
+        <strong>${item.title}</strong><br>
+        Price: $${item.price}<br>
+        Category: ${item.category}
+      `;
       container.appendChild(div);
     });
 }
