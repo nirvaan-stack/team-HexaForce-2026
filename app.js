@@ -32,3 +32,4 @@ function displayListings(filter = "") {
       container.appendChild(div);
     });
 }
+//<!-- checkpoint -->
